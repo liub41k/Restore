@@ -1,0 +1,68 @@
+.loader
+	position: relative
+	padding: 50px 0
+	font-size: 50px
+	font-weight: 700
+	+xs
+		font-size: 40px
+	span
+		color: transparent
+		+nosel
+		+pseudo
+		&::before
+			content: attr(data-text)
+			z-index: 10
+			top: -4px
+			animation: load-before 1.4s ease-in-out infinite
+			color: #663399
+		&::after
+			top: -4px
+			content: attr(data-text)
+			z-index: 9
+			animation: load-after 1.4s ease-in-out infinite
+			color: transparent
+		&:nth-child(1)::before, &:nth-child(1)::after
+			animation-delay: 0
+		&:nth-child(2)::before, &:nth-child(2)::after
+			animation-delay: .1s
+		&:nth-child(3)::before, &:nth-child(3)::after
+			animation-delay: .2s
+		&:nth-child(4)::before, &:nth-child(4)::after
+			animation-delay: .3s
+		&:nth-child(5)::before, &:nth-child(5)::after
+			animation-delay: .4s
+		&:nth-child(6)::before, &:nth-child(6)::after
+			animation-delay: .5s
+		&:nth-child(7)::before, &:nth-child(7)::after
+			animation-delay: .6s
+		&:nth-child(8)::before, &:nth-child(8)::after
+			animation-delay: .7s
+		&:nth-child(9)::before, &:nth-child(9)::after
+			animation-delay: .8s
+		&:nth-child(10)::before, &:nth-child(10)::after
+			animation-delay: .9s
+		&:nth-child(11)::before, &:nth-child(11)::after
+			animation-delay: 1s
+
+@keyframes load-before
+	0%, 100%
+		transform: translate(0, 0)
+	50%
+		transform: translate(15px, -15px)
+
+@keyframes load-after
+	0%, 100%
+		transform: translate(0, 0)
+	50%
+		transform: translate(7px, -7px)
+
+@supports (-webkit-text-stroke: 1px rgba(#663399, 1))
+	.loader
+		span
+			color: transparent
+			-webkit-text-stroke: 1px rgba(#663399, .2)
+			&::before
+				color: transparent
+				-webkit-text-stroke: 1px rgba(#663399, 1)
+			&::after
+				-webkit-text-stroke: 1px rgba(#663399, .6)
